@@ -5,9 +5,7 @@ the apikey and namespace handling.
 
 
 class API(object):
-"""
-The primitive metrics API object.
-"""
+    """The primitive metrics API object."""
 
     def store(self, namespace, apikey, timestamp, **kwargs):
         """
