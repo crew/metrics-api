@@ -16,29 +16,19 @@ class API(object):
         :param timestamp: The event datetime.
         :param kwargs: The key-value mapping of the data (includes both
             fields and attributes).
-        :returns: On success,
-            {
-                "request": Request,
-                "code": "success",
-                "response": [{
-                    field1: Number,
-                    field2: Number,
-                    namespace.field1: Number,
-                    ...
-                }, {
-                    ...
-                }]
-            }
-        On error,
-            {
-                "request": Request,
-                "code": Number,
-                "error": "Error message"
-            }
+        :returns: A dictionary of this format.
+
+            .. code-block:: python
+
+                {
+                    "code": Number,
+                    "error": String, # (optional)
+                }
+
         """
 
     def retrieve(self, namespace=None, apikey=None, start_time=None,
-        end_time=None, interval=None, *fields, **attributes):
+            end_time=None, interval=None, *fields, **attributes):
         """
         This is the call from the frontend to the backend.
 
@@ -48,13 +38,36 @@ class API(object):
         :param end_time: The ending datetime.
         :param interval: The time interval.
         :param fields: The list of field names to retrieve.
-        :param attributes: The list of attributes (key-value pairs) for
+        :param attributes: The key-value pairs of attributes to values for
             filtering the dataset.
-        :returns: A dictionary of this format.
-            {
-                "code": Number,
-                (optional) "error": String,
-            }
+        :returns: On success,
+
+            .. code-block:: python
+
+                {
+                    "request": Request,
+                    "code": "success",
+                    "response": [
+                        {
+                            field1: Number,
+                            field2: Number,
+                            namespace.field1: Number,
+                            ...
+                        }, {
+                            ...
+                        }
+                    ]
+                }
+
+            On error,
+
+            .. code-block:: python
+
+                {
+                    "request": Request,
+                    "code": Number,
+                    "error": "Error message"
+                }
         """
 
 
