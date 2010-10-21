@@ -7,7 +7,7 @@ the apikey and namespace handling.
 class API(object):
     """The primitive metrics API object."""
 
-    def store(self, namespace, apikey, timestamp, **kwargs):
+    def store(self, namespace=None, apikey=None, timestamp=None, **kwargs):
         """
         This is the call from the "aggregator" to the backend.
 
@@ -37,8 +37,8 @@ class API(object):
             }
         """
 
-    def retrieve(self, namespace, apikey, start_time, end_time, interval,
-        *fields, **attributes):
+    def retrieve(self, namespace=None, apikey=None, start_time=None,
+        end_time=None, interval=None, *fields, **attributes):
         """
         This is the call from the frontend to the backend.
 
@@ -56,3 +56,31 @@ class API(object):
                 (optional) "error": String,
             }
         """
+
+
+class CrewMetricsException(Exception):
+
+    def __init__(self, wrapped=None, *args, **kwargs):
+        msg = None if not wrapped else str(wrapped)
+        Exception.__init__(self, msg, *args, **kwargs)
+        self.wrapped = wrapped
+
+
+class SerializationException(CrewMetricsException):
+    """Thrown when the request cannot be serialized."""
+
+
+class DeserializationException(CrewMetricsException):
+    """Thrown when the response cannot be deserialized."""
+
+
+class ValidationError(CrewMetricsException):
+    """Argument validation."""
+
+
+class TimeoutError(CrewMetricsException):
+    """The request timed out."""
+
+
+class NetworkError(CrewMetricsException):
+    """Connection/network error."""
