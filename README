@@ -1,1 +1,11 @@
-Repository for metrics api
+Repository for metrics api.
+
+
+To generate the documentation, you need sphinx (http://sphinx.pocoo.org/).
+
+    $ cd ./doc
+    $ make html
+
+The documentation should be generated at ./doc/build/html
+
+TODO more README
