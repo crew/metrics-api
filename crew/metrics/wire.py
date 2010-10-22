@@ -7,6 +7,9 @@ import api
 
 def dumps(obj):
     """
+    :param obj: The python object to be serialized to JSON.
+    :returns: The string of the python object.
+    :rtype: str
     >>> class X(object):
     ...     def __str__(self):
     ...         return 'X'
@@ -25,6 +28,8 @@ def dumps(obj):
 
 def loads(s):
     """
+    :param s: The string to be deserialized from JSON into a python object.
+    :returns: A python object based on the given JSON string.
     >>> loads('{"one": 2, "three": 4}') == {'one': 2, 'three': 4}
     True
     >>> loads('{')
@@ -40,6 +45,7 @@ def loads(s):
 
 class Chunk(object):
     """
+    A wrapper around JSON.
     >>> c = Chunk()
     >>> c.data = {}
     >>> c.data

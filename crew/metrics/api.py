@@ -28,7 +28,7 @@ class API(object):
         """
 
     def retrieve(self, namespace=None, apikey=None, start_time=None,
-            end_time=None, interval=None, *fields, **attributes):
+            end_time=None, interval=None, fields=None, attributes=None):
         """
         This is the call from the frontend to the backend.
 
