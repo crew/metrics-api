@@ -41,7 +41,8 @@ class HttpAPI(object):
         validation.check_list(fields, str, 'fields')
 
     def retrieve(self, namespace=None, apikey=None, start_time=None,
-            end_time=None, interval=None, fields=None, attributes=None):
+            end_time=None, interval=None, fields=None, attributes={}):
+        fields = fields if fields else []
         request = dict(attributes)
         self.__update_request(request, namespace, apikey)
         self.__validate_retrieve(start_time, end_time, interval, fields)
