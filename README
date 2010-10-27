@@ -8,4 +8,13 @@ To generate the documentation, you need sphinx (http://sphinx.pocoo.org/).
 
 The documentation should be generated at ./doc/build/html
 
+---
+Added more test scripts at test/
+They should be run within that directory (i.e. cd to test/)
+
+test/test_matplotlib.py requires matplotlib for full effect.
+For Ubuntu, it's packaged as python-matplotlib
+
+-Alex
+
 TODO more README
