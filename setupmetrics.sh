@@ -44,5 +44,8 @@ echo "Installing frontend dependencies"
 pushd metrics/frontend; pip install -r requirements.txt; popd
 
 echo "Installing backend dependencies"
-pushd metrics/backend; pip install -r requirements.txt; popd
-
+pushd metrics/backend
+pip install -r requirements.txt
+echo "Installing backend."
+python setup.py install
+popd
