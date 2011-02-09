@@ -49,3 +49,7 @@ pip install -r requirements.txt
 echo "Installing backend."
 python setup.py install
 popd
+
+echo
+echo "*** REMINDER: run the following. ***"
+echo "source $ENVDIR/bin/env/activate"
