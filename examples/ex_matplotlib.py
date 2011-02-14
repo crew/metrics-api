@@ -13,14 +13,15 @@ def f():
     api = HttpAPI(namespace='ns', apikey='apikey', hostname='localhost',
         port=2000, timeout=20)
     # set the start and end range. Not implemented yet.
-    start_time = time.time()
+    start_time = time.time() - 100000
     end_time = time.time()
     # Do a retrieve and display the graph.
     for _ in range(1):
         x = api.retrieve(start_time=start_time, end_time=end_time, interval=1,
             attributes={'type': 'E'},
             fields=['amount'])
-        test_plot(x)
+        print x
+#        test_plot(x)
         print len(x)
 
 

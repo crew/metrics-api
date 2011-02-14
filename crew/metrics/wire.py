@@ -2,7 +2,7 @@ try:
     import json
 except ImportError:
     import simplejson as json
-import api
+from . import api
 
 
 def dumps(obj):

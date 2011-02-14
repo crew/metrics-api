@@ -1,9 +1,9 @@
-from wire import Chunk
-from httplib import HTTPConnection, HTTPSConnection
-import api
-import validation
 import socket
+from httplib import HTTPConnection, HTTPSConnection
 from urlparse import urlparse
+from .wire import Chunk
+from . import api
+from . import validation
 
 
 class HttpAPI(object):
@@ -140,9 +140,9 @@ class HttpAPI(object):
             conn = self.get_connection()
             req = conn.request(method, url, chunk.to_network())
             resp = conn.getresponse()
-        except socket.timeout, e:
+        except socket.timeout as e:
             raise api.TimeoutError(e)
         # Other exceptions are treated as an network error.
-        except Exception, e:
+        except Exception as e:
             raise api.NetworkError(e)
         return Chunk.from_network(resp.read()).data
