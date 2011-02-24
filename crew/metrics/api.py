@@ -70,6 +70,48 @@ class API(object):
                 }
         """
 
+    def retrieve_last(self, namespace=None, apikey=None, fields=None,
+            attributes=None, limit=1):
+        """
+        This is the call from the frontend to the backend for the most
+        recent data.
+
+        :param namespace: The namespace of the data.
+        :param apikey: The secret key associated with the namespace.
+        :param fields: The list of field names to retrieve.
+        :param attributes: The key-value pairs of attributes to values for
+            filtering the dataset.
+        :param limit: The number of objects to return, by default this is 1.
+        :returns: On success,
+
+            .. code-block:: python
+
+                {
+                    "request": Request,
+                    "code": "success",
+                    "response": [
+                        {
+                            field1: Number,
+                            field2: Number,
+                            namespace.field1: Number,
+                            ...
+                        }, {
+                            ...
+                        }
+                    ]
+                }
+
+            On error,
+
+            .. code-block:: python
+
+                {
+                    "request": Request,
+                    "code": Number,
+                    "error": "Error message"
+                }
+        """
+
 
 class CrewMetricsException(Exception):
 

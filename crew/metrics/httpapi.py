@@ -135,6 +135,33 @@ class HttpAPI(object):
         request['fields'] = fields
         return self._send_request('/retrieve/', Chunk(request))
 
+    def __validate_retrieve_last(self, fields, limit):
+        if fields:
+            validation.check_list(fields, str, 'fields')
+        validation.check_int(limit, 'limit')
+
+    def retrieve_last(self, namespace=None, apikey=None, fields=None,
+            attributes=None, limit=1):
+        """
+        This is the call from the frontend to the backend for the most
+        recent data (sorted by the timestamp).
+
+        :param namespace: The namespace.
+        :param apikey: The API key.
+        :param fields: The list of field names to retrieve.
+        :param attributes: The key-value pairs of attributes to values for
+            filtering the dataset (A dict).
+        :param limit: The number of objects to return.
+        """
+        self.__validate_retrieve_last(fields, limit)
+        request = {
+            'limit': limit,
+            'fields': fields,
+            'attributes': attributes
+        }
+        self.__update_request(request, namespace, apikey)
+        return self._send_request('/retrieve-last/', Chunk(request))
+
     def _send_request(self, url, chunk, method='POST'):
         try:
             conn = self.get_connection()
