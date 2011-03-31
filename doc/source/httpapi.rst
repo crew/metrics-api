@@ -9,3 +9,4 @@ crew.metrics.httpapi
     .. automethod:: get_connection
     .. automethod:: store
     .. automethod:: retrieve
+    .. automethod:: retrieve_last

@@ -7,3 +7,4 @@ crew.metrics.api
 
     .. automethod:: store
     .. automethod:: retrieve
+    .. automethod:: retrieve_last
