@@ -1,0 +1,13 @@
+Source: python-crew-metrics-api
+Section: python
+Priority: extra
+Maintainer: Alex Lee <lee@ccs.neu.edu>
+Build-Depends: debhelper (>= 7), python, python-support
+Standards-Version: 3.8.4
+Homepage: http://crew-git.ccs.neu.edu/git/metrics-api
+
+Package: python-crew-metrics-api
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}
+Description: Crew Metrics API
+ Crew Metrics API package.

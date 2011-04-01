@@ -5,3 +5,7 @@ doc/build
 build
 .coverage
 cover
+debian/python-crew-metrics-api*
+debian/files
+build-stamp
+configure-stamp
