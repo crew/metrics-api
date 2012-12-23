@@ -2,7 +2,7 @@
 
 # Path to the virtualenv executable
 VENV=/usr/bin/virtualenv
-SCRATCH_DIR=/scratch/$USER
+SCRATCH_DIR=/tmp/$USER
 ENVDIR_NAME=metricsenv
 ENVDIR=$SCRATCH_DIR/$ENVDIR_NAME
 
