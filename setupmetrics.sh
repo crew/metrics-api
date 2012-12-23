@@ -31,7 +31,7 @@ for x in api frontend backend aggregator; do
 done
 
 echo "Enabling virtualenv"
-source $ENVDIR/bin/activate || echo "Unable to enable virtualenv." || exit 1
+source $ENVDIR/bin/activate || echo "Unable to enable virtualenv." && exit 1
 
 echo "Setting up."
 # Install pip, because the requirements files need this.
