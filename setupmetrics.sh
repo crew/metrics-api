@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Path to the virtualenv executable
-VENV=/usr/bin/virtualenv
+VENV=$(which virtualenv)
 SCRATCH_DIR=/tmp/$USER
 ENVDIR_NAME=metricsenv
 ENVDIR=$SCRATCH_DIR/$ENVDIR_NAME
@@ -31,7 +31,7 @@ for x in api frontend backend aggregator; do
 done
 
 echo "Enabling virtualenv"
-source $ENVDIR/bin/activate || echo "Unable to enable virtualenv." && exit 1
+source $ENVDIR/bin/activate || exit 1
 
 echo "Setting up."
 # Install pip, because the requirements files need this.
