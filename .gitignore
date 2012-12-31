@@ -9,3 +9,4 @@ debian/python-crew-metrics-api*
 debian/files
 build-stamp
 configure-stamp
+env
